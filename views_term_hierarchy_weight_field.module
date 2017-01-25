@@ -43,7 +43,7 @@ function views_term_hierarchy_weight_field_taxonomy_term_insert($term) {
  * Implements hook_cron().
  */
 function views_term_hierarchy_weight_field_cron() {
-  foreach(menu_get_menus() as $menu) {
+  foreach(array_keys(menu_get_menus()) as $menu) {
     $menu_tree = menu_tree_all_data($menu);
     $menu_flatten = array();
     _views_term_hierarchy_weight_field_flatten_menu($menu_tree, $menu_flatten);
